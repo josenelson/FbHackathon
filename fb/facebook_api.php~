@@ -5,7 +5,7 @@ $facebook = new Facebook(array(
   //'appId'  => '191149314281714',
   //'secret' => '73b67bf1c825fa47efae70a46c18906b',
   'appId'  => '212608815478069',
-  'secret' => 'ab11a960a632e4b3c26d5682f9861109',
+  'secret' => '6b2158d393052fd85293fe51396155d2',
 ));
 // Get User ID
 $user = $facebook->getUser();
