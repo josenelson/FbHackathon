@@ -10,7 +10,7 @@
 	if(isLoggedin()) 
 		echo ('Facebook login');
 	else {
-		header('<a href="' . $loginurl.'">Login with Facebook</a>');
+		echo('<a href="' . $loginurl.'">Login with Facebook</a>');
 		die();
 	}
 		
