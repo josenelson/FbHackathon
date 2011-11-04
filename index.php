@@ -17,11 +17,6 @@
 
 ?>
 
-<body>
-	Let the hackathon begin!
+<body>	
 	
-	<?php 
-		if(isLoggedin()) echo ('Facebook login');
-		else echo $loginurl;
-	?>
 </body>
