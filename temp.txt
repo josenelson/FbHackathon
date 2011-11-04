@@ -1,0 +1,26 @@
+function codeAddress(address,i,markerTitle) {
+		var location;
+		geocoder.geocode( { 'address': address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+	        	map.setCenter(results[0].geometry.location);
+				location = results[0].geometry.location;
+	        	marker[i] = new google.maps.Marker({
+	            	map: map, 
+					title:markerTitle,
+	            	position: results[0].geometry.location
+	        	});
+				google.maps.event.addListener(marker[i], 'click', function() {
+					map.setCenter(location);
+					map.setZoom(4);
+					$("div#maps-spinner").css({'display':''});
+			    	$("#map-data").load("getmapresults.php", {city:markers[i].currentcity,country:markers[i].currentcountry}, function(){
+						$("div#maps-spinner").css({'display':'none'});
+						pageMapResults();
+						changeTheme(currentTheme);
+					});
+			  	});
+	      	} else {
+	        	alert("Geocode was not successful for the following reason: " + status);
+	      	}
+	    });
+	}
