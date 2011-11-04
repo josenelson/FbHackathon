@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 	include_once('conf/config.php');
 	include_once('fb/facebook_api.php');
@@ -18,17 +17,9 @@
 
 ?>
 
-<body>	
+
 	
-<<<<<<< HEAD
-</body>
-=======
-	<?php 
-		if(isLoggedin()) echo ('Facebook login');
-		else echo $loginurl;
-	?>
-</body>
-=======
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -54,10 +45,17 @@
 	   	</script>
 	</head>
 	<body>
-		<div id="page">
-			<div id="my-map" style="width:100%;height:300px;"></div>
-		</div>
+		<?php 
+			if(isLoggedin()) {
+		?>
+			<div id="page">
+				<div id="my-map" style="width:100%;height:300px;"></div>
+			</div>
+
+		<?php
+			}else echo $loginurl;
+		?>
+		
 	</body>
 </html>
->>>>>>> Initial Codes
->>>>>>> Initial Codes
+
