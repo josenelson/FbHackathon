@@ -17,7 +17,35 @@
 	$userImageUrl = getUserImageUrl($user_id);
 		
 ?>
-		<div id="albums" class="albums_div">
+<html>
+<head>
+	<style type="text/css">
+
+.albums_div{
+	width:200px;
+	text-align:justify;
+	padding:5px;
+	border:1px solid #E98DCF;
+}
+
+.table_text{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.album_container{	
+	width: 50px;
+	height: 50px;
+	overflow:auto;
+}
+
+
+</style>
+</head>
+<body>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	<div id="maindiv" class="albums_div">
         	<table id="album-container" border="0" cellspacing="0">		
         	
         	</table>
@@ -27,13 +55,10 @@
 			function updateAlbum(control, id) {
 				var url = "./services/";
 				if(control.checked) {
-					alert("should add");
 					url += 'add_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";;
-					
 				}
 				else {
-					url += 'remove_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";
-					alert("should remove");					
+					url += 'remove_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";			
 				}
 				$.getJSON(url,function(data) {});
 			}
@@ -69,10 +94,13 @@
 						html = html.replace("@{checked}", '');
 					}
 				
-					("#album-container")[0].innerHTML += html; 
+					$("#album-container")[0].innerHTML += html; 
 				}
        			
       			});
       		//}
       		
 		</script>
+</body>
+</html>
+		

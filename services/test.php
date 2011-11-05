@@ -1,39 +1,16 @@
-<?php 
-
-	require_once("../conf/config.php");
-	require_once("../fb/facebook_api.php");
-
-	$user_info = getCurrentUserInfo();
-
-	$user_name = $user_info->{"name"};
-	$user_id = $user_info->{"id"};
-   	
-?>
-<html>
 <head>
-	<title></title>
+<script type="text/javascript">
+<!--
+function myPopup2() {
+window.open( "../album_selection.php", "myWindow", 
+"status = 1, height = 100%, width = 200, resizable = 0" )
+}
+//-->
+</script>
 </head>
 <body>
-	<div id="fb-root"></div>
-	<script src="//connect.facebook.net/en_US/all.js"></script>
-	<script>
-  	FB.init({
-    	appId      : '<?php echo $_SESSION["appId"];?>', // App ID
-      	channelURL : '../fb/channel.html', // Channel File
-      	status     : true, // check login status
-      	cookie     : true, // enable cookies to allow the server to access the session
-      	oauth      : true, // enable OAuth 2.0
-      	xfbml      : true  // parse XFBML
-
-  	});
-  	
-  	FB.api('/me', function(response) {
- 			 alert('Your name is ' + response.name);
-		});
-</script>
+<form>
+<input type="button" onClick="myPopup2()" value="POP2!">
+</form>
+<p onClick="myPopup2()">CLICK ME TOO!</p>
 </body>
-</html>
-      			
- 
- 
-   

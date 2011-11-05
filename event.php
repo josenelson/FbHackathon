@@ -209,13 +209,15 @@
     		}
     		
 			function getAlbums(){
-				$("div#album-select").load("album_selection.php", {}, function(){
+				/*$("div#album-select").load("album_selection.php", {}, function(){
 					
-				});
-			
+				});*/
+				
+				window.open( "album_selection.php?eventid=<?php echo $eventid; ?>", "Albumselection", "status = 1, height = 500px, width = 400px, resizable = 1, scrollbars=yes" );
 			}
 			
 		</script>
+		
 		<script type="text/javascript">
 			var map;
 		

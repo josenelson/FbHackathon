@@ -13,12 +13,10 @@
 		$user_id = $user_info->{"id"};
 
 		$userImageUrl = getUserImageUrl($user_id);
-	
 	} 
 		
 	else {
-		echo "It's not logged in";
-		echo $loginurl;
+		header("Location: " . $loginurl);
 		die();
 	}
 		

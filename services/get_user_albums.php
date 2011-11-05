@@ -9,6 +9,7 @@ require_once("../conf/config.php");
 
 
 $userid = isset($_GET["userid"])? $_GET["userid"]:"";
+$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 
 $albums = getUserAlbums($userid);
 $albumData = array();
@@ -40,6 +41,8 @@ echo json_encode($albumData);
 
 function checkExists($id, $eventid)
 {
+	//echo "SELECT COUNT(*) FROM images WHERE albumid ='".$id."'"."and eventid='".$eventid."'";
+
 	$result = mysql_query("SELECT COUNT(*) FROM images WHERE albumid ='".$id."'"."and eventid='".$eventid."'");
 	$result = mysql_result($result, 0, 0);
 	return $result;
