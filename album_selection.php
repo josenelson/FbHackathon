@@ -1,5 +1,5 @@
 <?php
-	$event_id = $_GET["eventid"];
+	$event_id = isset($_GET["eventid"])? $_GET["eventid"]:"";
 
 	include_once('conf/config.php');
 	include_once('fb/facebook_api.php');
@@ -23,10 +23,7 @@
 		echo "It's not logged in";
 		echo $loginurl;
 		die();
-	}
-
-	$event_id = 0;
-		
+	}		
 ?>
 
 <html>
@@ -35,7 +32,6 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 	</head>
 	<body>
-		<?php echo $event_id; ?>
 		<div id="album-container">
 			
 		</div>
