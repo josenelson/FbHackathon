@@ -21,6 +21,7 @@ foreach($albums as $album)
 
 		if($albumSingle->{"id"})
 		{
+			if(!$albumSingle->{"cover_photo"}) continue;
 			$albumDetail = array();
 			$albumDetail["name"] = $albumSingle->{"name"};
 			$albumDetail["picture"] = $albumSingle->{"cover_photo"};
