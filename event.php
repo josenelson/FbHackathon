@@ -136,7 +136,7 @@
     		
 			function getAlbums(){
 				$("div#album-select").load("album_selection.php", {}, function(){
-				
+					loadAlbums();
 				});
 			
 			}
