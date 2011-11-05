@@ -196,6 +196,7 @@
 				
 				<div id="my-map" style="width:100%;height:350px;"></div>
 				<div id="event-bar">
+					<hr size="4"></hr>
 					<div id="carouselh">
                     </div>
 					<div style="clear:both;"/>
