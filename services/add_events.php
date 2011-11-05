@@ -6,12 +6,13 @@ header('Content-type: application/json');
 
 include_once('../conf/config.php');
 
-function add_events($eventid, $lat, $lng)
-{
+$eventid = isset($_GET["eventid"])? $_GET["eventid"]: "";
+$lat = isset($_GET["lat"])? $_GET["lat"]: "";
+$lng = isset($_GET["lng"])? $_GET["lng"]: "";
+
 //Connection handle and add event location for a given event
 $query =  "INSERT INTO eventlocations (eventid, lat,lng) VALUES ('".$eventid."', '".$lat."', '".$lng."')";
 $result = mysql_query($query);
-return $result;
-}
+echo $result;
 
 ?>

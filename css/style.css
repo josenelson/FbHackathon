@@ -67,3 +67,31 @@ div.event-text p.event-date{
 	font-size:0.7em;
 	font-style:italic;
 }
+
+
+
+/*Styling sheets for the event page*/
+div#right-side{
+	width:150px;
+	height:100%;
+	float:right;
+	
+}
+
+div#left-side{
+	width:545px;
+	height:200px;
+	background-color:gray;
+	float:left;
+}
+
+p.people-name{
+	margin:0;
+	padding:0;
+}
+
+
+
+
+
+

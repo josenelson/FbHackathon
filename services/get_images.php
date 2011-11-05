@@ -13,13 +13,12 @@ function get_images($eventid)
 	$result = mysql_query("SELECT picid FROM images WHERE eventid ='".$eventid."'");
 
 	$eventData = array();
-	$eventData["event_images"] = array();
 
 	while($row = mysql_fetch_array($result))
 	{
 		$temp = array();
 		$temp["picid"] = $row["picid"];
-		array_push($eventData["event_images"], $temp);
+		array_push($eventData, $temp);
 	}
 
 	//Return json data
