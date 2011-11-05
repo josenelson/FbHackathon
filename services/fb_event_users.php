@@ -18,19 +18,6 @@ if($users)
 	foreach($users->{"attending"} as $user) {
 		array_push($usersData, $user);
 	}
-	foreach($users->{"unsure"} as $user)
-	{
-		array_push($usersData, $user);
-	}
-	foreach($users->{"declined"} as $user)
-	{
-		array_push($usersData, $user);
-	}
-	foreach($users->{"declined"} as $user)
-	{
-		array_push($usersData, $user);
-	}
-
 }
 
 $eventData["event"] = array();
