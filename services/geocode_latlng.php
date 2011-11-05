@@ -53,5 +53,4 @@ $base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json?address=";
     
   }
 }
-
 ?>

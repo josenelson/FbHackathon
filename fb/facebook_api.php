@@ -67,6 +67,20 @@ function getUserInfo($userid) {
 	return $json_output;
 }
 
+function getEventInfo($eventid) {
+	$jsonurl = "https://graph.facebook.com/" . $eventid;
+	$json = file_get_contents($jsonurl,0,null,null);
+	$json_output = json_decode($json);
+	return $json_output;
+}
+
+function getEventPicture($eventid)
+{
+	$jsonurl = "https://graph.facebook.com/" . $eventid."/picture?type=large";
+	return $jsonurl;
+}
+
+
 function getUserEvents() {	
 	$jsonurl = "https://api.facebook.com/method/events.get";
 	$jsonurl = $jsonurl . "?access_token=" . $_SESSION["access_token"];
@@ -75,6 +89,17 @@ function getUserEvents() {
 	$json = file_get_contents($jsonurl,0,null,null);
 	$json_output = json_decode($json);
 	
+	return $json_output;
+}
+
+function getEventUsers($eventid)
+{
+	$jsonurl = "https://api.facebook.com/method/events.getMembers";
+	$jsonurl = $jsonurl."?eid=".$eventid."&access_token=".$_SESSION["access_token"];
+	$jsonurl = $jsonurl."&format=json";
+	$json = file_get_contents($jsonurl, 0, null, null);
+	$json_output = json_decode($json);
+
 	return $json_output;
 }
 

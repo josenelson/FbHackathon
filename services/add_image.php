@@ -6,10 +6,11 @@ header('Content-type: application/json');
 
 include_once('../conf/config.php');
 
-function add_image($eventid, $picid)
-{
-$query = "INSERT INTO images (eventid, picid) VALUES ('".$eventid."', '".$picid."')";
+$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
+$picid = isset($_GET["picid"])? $_GET["picid"]:"";
+$userid = isset($_GET["userid"])? $_GET["userid"]:"";
+
+$query = "INSERT INTO images (eventid, picid, userid) VALUES ('".$eventid."', '".$picid."', '".$userid."')";
 $result = mysql_query($query);
-return $result;
-}
+echo $result;
 ?>
