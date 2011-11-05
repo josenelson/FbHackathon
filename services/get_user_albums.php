@@ -9,7 +9,6 @@ require_once("../conf/config.php");
 
 
 $userid = isset($_GET["userid"])? $_GET["userid"]:"";
-$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 
 $albums = getUserAlbums($userid);
 $albumData = array();
