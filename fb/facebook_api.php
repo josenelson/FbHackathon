@@ -18,6 +18,8 @@ $access_token = $facebook->getAccessToken();
 $_SESSION["user"] = $user;
 $_SESSION["facebook"] = $facebook;
 $_SESSION["access_token"] = $facebook->getAccessToken();
+$_SESSION["appId"] = $appId;
+$_SESSION["url"] = $url;
 
        
 //'AAAAAAITEghMBAIVb8ShZCiu1RlOypQgh8ij6QdRnycXxBsbdtrhU0TDoJNA0hwJdHzYKqequpszXYdYg2P9L2zAocSG4aJoBAWg0UBKRDgKymnbRZA';

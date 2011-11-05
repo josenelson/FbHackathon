@@ -80,9 +80,9 @@ div#right-side{
 
 div#left-side{
 	width:545px;
-	height:200px;
 	background-color:gray;
 	float:left;
+	position: relative;
 }
 
 p.people-name{
@@ -90,8 +90,41 @@ p.people-name{
 	padding:0;
 }
 
+div.limg-container{
+	width:320px;
+	height:240px;
+	overflow:hidden;
+	position: absolute;
+}
 
+img.size-large{
+	width:320px;
+	height:auto;
+}
 
+div.mimg-container{
+	width:160px;
+	height:120px;
+	overflow:hidden;
+	position: absolute;
+}
+
+img.size-medium{
+	width:160px;
+	height:auto;
+}
+
+div.simg-container{
+	width:80px;
+	height:60px;
+	overflow:hidden;
+	position: absolute;
+}
+
+img.size-small{
+	width:80px;
+	height:auto;
+}
 
 
 
