@@ -124,6 +124,12 @@ function getEventUsers($eventid)
 	return $json_output;
 }
 
+function getImageUrl($imageid) {
+	$url = "https://graph.facebook.com/" . $imageid;
+	$url = $$url."?access_token=".$_SESSION["access_token"];
+	return $url;
+}
+
 function printUser() {
 	print_r($_SESSION["access_token"]);
 }
