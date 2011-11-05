@@ -9,6 +9,7 @@ require_once("../conf/config.php");
 
 
 $userid = isset($_GET["userid"])? $_GET["userid"]:"";
+$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 
 $albums = getUserAlbums($userid);
 $albumData = array();
@@ -25,7 +26,7 @@ foreach($albums as $album)
 			$albumDetail["name"] = $albumSingle->{"name"};
 			$albumDetail["picture"] = $albumSingle->{"cover_photo"};
 			$albumDetail["id"] = $albumSingle->{"id"};
-			$albumDetail["exists"] = checkExists($albumSingle->{"id"});
+			$albumDetail["exists"] = checkExists($albumSingle->{"id"}, $eventid);
 			$albumDetail["imageurl"] = getImageUrl($albumSingle->{"cover_photo"});
 			array_push($albumData["albums"], $albumDetail);
 
@@ -37,9 +38,9 @@ foreach($albums as $album)
 
 echo json_encode($albumData);
 
-function checkExists($id)
+function checkExists($id, $eventid)
 {
-	$result = mysql_query("SELECT COUNT(*) FROM images WHERE albumid ='".$id."'");
+	$result = mysql_query("SELECT COUNT(*) FROM images WHERE albumid ='".$id."'"."and eventid='".$eventid."'");
 	$result = mysql_result($result, 0, 0);
 	return $result;
 }
