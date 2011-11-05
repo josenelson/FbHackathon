@@ -1,22 +1,51 @@
 <html>
-	<head>
-	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-	    
-	    
-	</head>
-	<body>
-		<script type="text/javascript">
-      		var url = 'fb_events.php';
-       		$.getJSON(url, function(data) {
-       			
-       			for(var i = 0; i < data.data.length; i++) {
-      				alert(data.data[i].name);
-      			}
-       			
-      		});
+  <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/wordcumulus.js"></script>
+    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/swfobject.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1");
 
-		
-		</script>    
-	    
-	</body>
+      // Set callback to run when API is loaded
+      google.setOnLoadCallback(drawVisualization);
+
+      // Called when the Visualization API is loaded.
+      function drawVisualization() {
+				var url = './fb_events.php';
+       			$.getJSON(url, function(events) {
+       			
+       				 // Create and populate a data table.
+        			var data = new google.visualization.DataTable();
+        			data.addColumn('string', 'Tag');
+        			data.addColumn('string', 'URL');
+        			data.addRows(events.data.length);
+        			
+       				for(var i = 0; i < events.data.length; i++) {
+       						
+       						alert(events.data[i].name);
+       						data.setCell(i, 0, events.data[i].name);
+        					data.setCell(i, 1, 'http://www.youtube.com/results?search_query=brazil+fifa+world+cup');
+       				
+       				}
+       				
+        			// Instantiate our table object.
+        			 // Create and draw the visualization.
+          			var tree = new google.visualization.TreeMap(document.getElementById('visualization'));
+          			tree.draw(data, {
+            			minColor: '#f00',
+            			midColor: '#ddd',
+           				maxColor: '#0d0',
+            			headerHeight: 15,
+            			fontColor: 'black',
+            			showScale: true});
+            
+       				});
+       		}
+   </script>
+  </head>
+
+  <body>
+    <div id="visualization" style="width: 1100px; height: 500px;"></div>
+  </body>
 </html>
