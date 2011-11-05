@@ -60,10 +60,7 @@
     				var eventCircle = new google.maps.Circle(circleOptions);
 
 				});
-				$('#carouselh').jsCarousel({ onthumbnailclick: function(src) { alert(src); }, autoscroll: false, circular: true, masked: false, itemstodisplay: 5, orientation: 'h' });
-				changeEventHover();
-				changeArrowHover();
-	   		});
+					   		});
 	   		
 	   		function changeArrowHover(){
 	   			$('.jscarousal-horizontal-back').hover(
@@ -104,81 +101,61 @@
 		<?php 
 			if(isLoggedin()) {
 		?>
+			<script type="text/javascript">
+      			var url = './services/fb_events.php';
+       			$.getJSON(url, function(data) {
+       			
+       				for(var i = 0; i < data.data.length; i++) {
+       						
+       						//alert(data.data[i].name);
+       						
+       						var html = "<div><div class=\"event-wrapper\"><div class=\"event-image\"><img src=\"@{picture}\" class=\"evt-img\"/></div><div class=\"event-text\"><p class=\"event-name\">@{name}</p><p class=\"event-date\">@{time}</p></div></div></div>";
+       						
+       						html = html.replace("@{name}", data.data[i].name);
+       						html = html.replace("@{picture}", data.data[i].picture);
+       						html = html.replace("@{time}", data.data[i].time);
+       						//time
+       						
+       						$("#carouselh")[0].innerHTML += html;   
+       						
+       						for(var j=0; j < data.data[i].locations.length; j++) {       							
+       							var myLatlng = new google.maps.LatLng(data.data[i].locations[j].lat,data.data[i].locations[j].lng);
+    
+ 								var marker = new google.maps.Marker({
+      								position: myLatlng,
+      								title: data.data[i].name
+  								});	
+  								
+  								marker.setMap(map);  
+       						
+       						}
+       						
+       						//var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+    
+ 							//var marker = new google.maps.Marker({
+      						//	position: myLatlng,
+      						//	title:"Hello World!"
+  							//});								
+					}
+					  
+					$('#carouselh').jsCarousel({ onthumbnailclick: function(src) { alert(src); }, autoscroll: false, circular: true, masked: false, itemstodisplay: 5, orientation: 'h' });
+					changeEventHover();
+					changeArrowHover();
+
+       			
+      			});
+			</script>  
+		
 			<div id="page">
 				<div id="header-bar">
 					<img src="<?php echo $userImageUrl;?>" style="width:30px;height:30px;"></img>
+					<?php echo $user_name;?>  <a href="<?php echo $logouturl;?>">Logout</a>
 				</div>
 				<div id="my-map" style="width:100%;height:350px;"></div>
 				<div id="event-bar">
 					<hr size="4"></hr>
 					<div id="carouselh">
-                            <div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/pyramid.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/taj.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/babylon.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/rio.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/liberty.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="event-wrapper">
-									<div class="event-image">
-										<img src="img/water.jpg" class="evt-img"></img>
-									</div>
-									<div class="event-text">
-										<p class="event-name">Understanding Egyptian</p>
-										<p class="event-date">Feb 1' 2001</p>
-									</div>
-								</div>
-							</div>
-                        </div>
+                                                    </div>
 					<div style="clear:both;"/>
 				</div>
 			</div>
