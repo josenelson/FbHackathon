@@ -1,6 +1,12 @@
 <?php
+	include_once('facebook_api.php');
 
-	require_once("facebook_api.php");
+	$logouturl = $_SESSION["logoutUrl"];
+	$loginurl = $_SESSION["loginUrl"];
 	
-	echo $_SESSION["logoutUrl"];
+	header('Location: ' . $logouturl);
+	
+	session_destroy();
+	
+	die();
 

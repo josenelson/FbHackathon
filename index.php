@@ -2,23 +2,22 @@
 	include_once('conf/config.php');
 	include_once('fb/facebook_api.php');
 	//session_start();
-	
-		
-	if(isLoggedin()){
-	$user = getCurrentUserInfo();
 	$logouturl = $_SESSION["logoutUrl"];
 	$loginurl = $_SESSION["loginUrl"];
-	$user_info = getCurrentUserInfo();
+		
+	if(isLoggedin()){
+		$user = getCurrentUserInfo();
+		$user_info = getCurrentUserInfo();
 
-	$user_name = $user_info->{"name"};
-	$user_id = $user_info->{"id"};
+		$user_name = $user_info->{"name"};
+		$user_id = $user_info->{"id"};
 
-	$userImageUrl = getUserImageUrl($user_id);
+		$userImageUrl = getUserImageUrl($user_id);
 	
 	} 
 		
 	else {
-		echo('<a href="' . $loginurl.'">Login with Facebook</a>');
+		header('Location: ' . $loginurl);
 		die();
 	}
 		
