@@ -9,7 +9,7 @@ include_once('../conf/config.php');
 $eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 $albumid = isset($_GET["albumid"])? $_GET["albumid"]:"";
 
-$query = "DELETE FORM images WHERE eventid='".$eventid."' and albumid='".$albumid."')";
+$query = "DELETE FORM images WHERE eventid='".$eventid."' and albumid='".$albumid;
 $result = mysql_query($query);
 echo $result;
 
