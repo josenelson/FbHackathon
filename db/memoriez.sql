@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2011 at 06:16 PM
+-- Generation Time: Nov 04, 2011 at 10:39 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -26,17 +26,19 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `eventlocations` (
-  `eventid` int(11) NOT NULL,
+  `eventid` text COLLATE utf8_unicode_ci NOT NULL,
   `lat` double NOT NULL DEFAULT '0',
   `lng` double NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `eventlocations`
 --
 
+INSERT INTO `eventlocations` (`eventid`, `lat`, `lng`, `id`) VALUES
+('131657286936629', 41, 87, 2);
 
 -- --------------------------------------------------------
 
@@ -45,14 +47,16 @@ CREATE TABLE IF NOT EXISTS `eventlocations` (
 --
 
 CREATE TABLE IF NOT EXISTS `events` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `eventid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`eventid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `events`
 --
 
+INSERT INTO `events` (`eventid`) VALUES
+('131657286936629');
 
 -- --------------------------------------------------------
 
@@ -61,15 +65,19 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
-  `eventid` int(11) NOT NULL DEFAULT '0',
+  `eventid` text COLLATE utf8_unicode_ci NOT NULL,
+  `picid` text COLLATE utf8_unicode_ci NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `images`
 --
 
+INSERT INTO `images` (`eventid`, `picid`, `id`) VALUES
+('131657286936629', 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/276426_144682542295731_1770123730_s.jpg', 2),
+('131657286936629', 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/yi/r/zSnTif5Rf_V.png', 3);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
