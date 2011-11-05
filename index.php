@@ -17,16 +17,12 @@
 	} 
 		
 	else {
-		header('Location: ' . $loginurl);
+		echo "It's not logged in";
+		echo $loginurl;
 		die();
 	}
 		
-
 ?>
-
-
-	
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -98,9 +94,6 @@
 	   	</script>
 	</head>
 	<body>
-		<?php 
-			if(isLoggedin()) {
-		?>
 			<script type="text/javascript">
       			var url = './services/fb_events.php';
        			$.getJSON(url, function(data) {
@@ -146,24 +139,48 @@
       			});
 			</script>  
 		
-			<div id="page">
-				<div id="header-bar">
+		
+		
+			<div id="page" class="mask">
+				<div class="blankspace">
+    				<a class="blankspace" href="<?php echo $logouturl; ?>">Sign out</a>
+   				</div>
+				<!--Old one <div id="header-bar">
 					<img src="<?php echo $userImageUrl;?>" style="width:30px;height:30px;"></img>
 					<?php echo $user_name;?>  <a href="<?php echo $logouturl;?>">Logout</a>
+				</div>-->
+				
+				<!-- New header -->
+				<div class="header">
+    				<div class="userthumb_navbar">
+        				<img src="<?php echo $userImageUrl;?>" />
+       				</div>
+        
+        			<div class="userinfo_navbar">
+        				<p>
+        					<font size="4"><strong>Welcome, <?php echo $user_name;?> </strong></font> <br/> 56 events, 6 countries and counting...
+    					</p>
+        			</div>
+        
+       				<div class="logo_navbar">
+        				<img src="./img/logo2.png" width="200" height="40"/>
+        			</div>
+    			</div>
+    			<!-- Finish header here -->
+				
+				<div class="col2">
+					<center>
+					<div id="my-map" style="width:96%;height:350px;"></div>
+					<div id="event-bar">
+						<hr size="4"></hr>
+						<div id="carouselh">
+                        </div>
+						<div style="clear:both;"/>
+						
+					</div>
+					</center>
 				</div>
-				<div id="my-map" style="width:100%;height:350px;"></div>
-				<div id="event-bar">
-					<hr size="4"></hr>
-					<div id="carouselh">
-                                                    </div>
-					<div style="clear:both;"/>
-				</div>
-			</div>
-
-		<?php
-			}else echo $loginurl;
-		?>
-		
+		    </div> 
 	</body>
 </html>
 
