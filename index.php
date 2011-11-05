@@ -6,6 +6,10 @@
 	$user = getCurrentUserInfo();
 	$logouturl = $_SESSION["logoutUrl"];
 	$loginurl = $_SESSION["loginUrl"];
+	$user_info = getCurrentUserInfo();
+
+	$user_name = $user_info->{"name"};
+	$user_id = $user_info->{"id"};
 	
 	if(isLoggedin()){
 	$userImageUrl = getUserImageUrl(getLoggedUserId());
