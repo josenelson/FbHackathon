@@ -13,11 +13,14 @@ img{
 	border:none;
 }
 
+ul, li{padding:0;margin:0;}
+
 body{
-	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
-	padding: 0px;
-   	margin: 0px;
-   	background-color: #ffffff;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;*/
+	 padding: 0px;
+   		margin: 0px;
+   
+   background-color: #cfcfcf
 }
 
 div#page{
@@ -25,39 +28,26 @@ div#page{
 	width:700px;
 	height:100%;
 	margin:0 auto;
-	margin-top:10px;
+	padding-top:10px;
+	background-color: #FFFFFF;
 }
 
-div#header{
-	padding:5px;
-	background-color:#a82d89;
+ul#nav-links{
+	margin-bottom:8px;
+	text-align: right;
+	padding-right:8px;
 }
 
-div#userthumb_navbar{
-	width:50px;
-	height:50px;
-	float:left;
+ul#nav-links li{
+	display:inline;
+	font-size:0.8em;
+	
 }
 
-div#userthumb_navbar img{
-	width:50px;
-	height:50px;
+ul#nav-links li a{
+	color:#a82d89;
+	
 }
-
-div#userinfo_navbar{
-	float:left;
-	margin-left:10px;
-}
-
-div#userinfo_navbar p{
-	margin:0;
-	padding:0;
-}
-
-div#logo_navbar{
-	float:right;
-}
-
 
 div#my-map{
 	margin-top: 8px;
@@ -96,6 +86,12 @@ div.event-image{
 	overflow: hidden;
 }
 
+div.event-text{
+	padding-bottom: 8px;
+	font-size:0.8em;
+	padding-top:2px;
+}
+
 img.evt-img{
 	width:100%;
 	height:auto;
@@ -103,8 +99,6 @@ img.evt-img{
 
 div.event-text{
 	padding-bottom: 8px;
-	font-size:0.8em;
-	padding-top:2px;
 }
 
 div.event-text p{
@@ -156,12 +150,34 @@ div.limg-container{
 }
 
 /* New styles from template, remove as needed */
+div#header{
+	padding:5px;
+	background-color:#a82d89;
+}
 
+div#userthumb_navbar{
+	width:50px;
+	height:50px;
+	float:left;
+}
 
-.footer{
-   float: left;
-   width: 100%;
-   background-color: #ff7400
+div#userthumb_navbar img{
+	width:50px;
+	height:50px;
+}
+
+div#userinfo_navbar{
+	float:left;
+	margin-left:10px;
+}
+
+div#userinfo_navbar p{
+	margin:0;
+	padding:0;
+}
+
+div#logo_navbar{
+	float:right;
 }
 
 /*body {
