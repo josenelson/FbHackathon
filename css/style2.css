@@ -1,0 +1,237 @@
+html, body{
+	margin: 0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	border:none;
+}
+
+body{
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	padding: 0px;
+   	margin: 0px;
+   	background-color: #ffffff;
+}
+
+div#page{
+	
+	width:700px;
+	height:100%;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+div#my-map{
+	margin-top: 5px;
+}
+
+div#event-bar{
+	width:100%;
+	height:200px;
+	
+}
+
+hr{
+	color:#1977a8;
+	border: 0;
+	background-color:#1977a8;
+}
+
+div#carouselh a{
+	color:black;
+}
+
+div.event-wrapper{
+	width:110px;
+	padding:5px;
+	background-color:#afb5b8;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	float:left;
+	margin-left:4px;
+	margin-right:4px;
+}
+
+div.event-image{
+	width:100%;
+	height:70px;
+	overflow: hidden;
+}
+
+img.evt-img{
+	width:100%;
+	height:auto;
+}
+
+div.event-text{
+	padding-bottom: 8px;
+	font-size:0.8em;
+	padding-top:2px;
+}
+
+div.event-text p{
+	padding:0;
+	margin:0;
+	text-transform: uppercase;
+}
+
+div.event-text p.event-name{
+	font-size:0.8em;
+}
+
+div.event-text p.event-date{
+	font-size:0.7em;
+	font-style:italic;
+}
+
+
+
+/*Styling sheets for the event page*/
+div#event-top-page{
+	margin-bottom:10px;
+}
+
+div#right-side{
+	width:210px;
+	height:100%;
+	float:right;
+	
+}
+
+div#left-side{
+	width:488px;
+	background-color:gray;
+	float:left;
+	position: relative;
+}
+
+p.people-name{
+	margin:0;
+	padding:0;
+}
+
+div.limg-container{
+	width:320px;
+	height:240px;
+	overflow:hidden;
+	position: absolute;
+}
+
+/* New styles from template, remove as needed */
+
+
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #ff7400
+}
+
+/*body {
+   padding: 0px;
+   margin: 0px;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+   color:#FF0099;
+   background-color: #cfcfcf
+}*/
+
+
+
+img.size-large{
+	width:320px;
+	height:auto;
+}
+
+
+div.mimg-container{
+	width:160px;
+	height:120px;
+	overflow:hidden;
+	position: absolute;
+}
+
+img.size-medium{
+	width:160px;
+	height:auto;
+}
+
+div.simg-container{
+	width:80px;
+	height:60px;
+	overflow:hidden;
+	position: absolute;
+}
+
+img.size-small{
+	width:80px;
+	height:auto;
+}
+
+div#event-image{
+	width:140px;
+	height:150px;
+	overflow:hidden;
+	float:left;
+}
+
+div#event-image img{
+	height:150px;
+	width:auto;
+}
+
+div#event-data{
+	width:338px;
+	height:150px;
+	background-color:#1977a8;
+	float:left;
+	margin-left:10px;
+	color:white;
+	position:relative;
+}
+
+div#epage-bdata{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+}
+
+div#epage-topdata{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+
+p#epage-eventname{
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	font-style:bold;
+}
+
+p#epage-eventdate{
+	font-size:0.9em;
+	font-style: italic;
+}
+
+div#event-data p{
+	margin:0;
+	padding:0;
+	text-transform: uppercase;
+}
+
+div#event-map{
+	width:200px;
+	height:150px;
+	float:left;
+	margin-left:10px;
+}
+
+/**Right side div coding*/
+
+

@@ -30,7 +30,7 @@
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 	    <script src="js/jsCarousel-2.0.0.js" type="text/javascript"></script>
 		<link href="css/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
-	    <link rel="stylesheet" href="css/style.css"/>
+	    <link rel="stylesheet" href="css/style2.css"/>
 	    <script type="text/javascript">
 	    	var map;
             var markers = new Array();
@@ -93,7 +93,7 @@
 	   		}
 	   		
 	   		function getEventPage(eventId){
-	   			alert(eventid);
+	   			window.location="./event.php?eventid="+eventId;
 	   		}
 	   	</script>
 	</head>
@@ -107,7 +107,7 @@
        						
        						//alert(data.data[i].name);
        						
-       						var html = "<a href=\"javascript:getEventPage('"+data.data[i].id+"')\"><div><div class=\"event-wrapper\"><div class=\"event-image\"><img src=\"@{picture}\" class=\"evt-img\"/></div><div class=\"event-text\"><p class=\"event-name\">@{name}</p><p class=\"event-date\">@{time}</p></div></div></div>";
+       						var html = "<a href=\"javascript:getEventPage('"+data.data[i].id+"')\"><div><div class=\"event-wrapper\"><div class=\"event-image\"><img src=\"@{picture}\" class=\"evt-img\"/></div><div class=\"event-text\"><p class=\"event-name\">@{name}</p><p class=\"event-date\">@{time}</p></div></div></div></a>";
        						
        						html = html.replace("@{name}", data.data[i].name);
        						html = html.replace("@{picture}", data.data[i].picture);
@@ -159,46 +159,18 @@
 		
 		
 		
-			<div id="page" class="mask">
-				<div class="blankspace">
-    				<a class="blankspace" href="<?php echo $logouturl; ?>">Sign out</a>
-   				</div>
-				<!--Old one <div id="header-bar">
-					<img src="<?php echo $userImageUrl;?>" style="width:30px;height:30px;"></img>
-					<?php echo $user_name;?>  <a href="<?php echo $logouturl;?>">Logout</a>
-				</div>-->
-				
-				<!-- New header -->
-				<div class="header">
-    				<div class="userthumb_navbar">
-        				<img src="<?php echo $userImageUrl;?>" />
-       				</div>
-        
-        			<div class="userinfo_navbar">
-        				<p>
-        					<font size="4"><strong>Welcome, <?php echo $user_name;?> </strong></font> <br/> 56 events, 6 countries and counting...
-    					</p>
-        			</div>
-        
-       				<div class="logo_navbar">
-        				<img src="./img/logo2.png" width="200" height="40"/>
-        			</div>
-    			</div>
-    			<!-- Finish header here -->
-				
-				<div class="col2">
-					<center>
-					<div id="my-map" style="width:96%;height:350px;"></div>
-					<div id="event-bar">
-						<hr size="4"></hr>
-						<div id="carouselh">
-                        </div>
-						<div style="clear:both;"/>
-						
-					</div>
-					</center>
+			<div id="page">
+				<div id="header">
 				</div>
-		    </div> 
+				<div id="my-map" style="width:100%;height:350px;"></div>
+				<div id="event-bar">
+					<hr size="4"></hr>
+					<div id="carouselh">
+                    </div>
+					<div style="clear:both;"/>
+				</div>
+			</div>
+		     
 	</body>
 </html>
 
