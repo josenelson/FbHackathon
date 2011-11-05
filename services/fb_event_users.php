@@ -19,7 +19,7 @@ if($users)
 		$imgurl = "";
 		if($i < 10)
 		{
-			$imgurl = getUserImage($user);
+			$imgurl = getUserImageUrl($user);
 			$temp = array();
 			$temp["imgurl"] = $imgurl;
 			$temp["userid"] = $user;
@@ -37,6 +37,8 @@ $eventpic = getEventPicture($eid);
 
 $eventData["event"]["name"] = $event->{"name"};
 $eventData["event"]["description"] = $event->{"description"};
+$eventData["event"]["date"] = $event->{"start_time"};
+$eventData["event"]["location"] = $event->{"location"};
 $eventData["event"]["picture"] = $eventpic;
 $eventData["event"]["users"] = $usersData;
 

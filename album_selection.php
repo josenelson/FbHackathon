@@ -40,13 +40,13 @@
 			function updateAlbum(control, id) {
 				var url = "./services/";
 				if(control.checked) {
-					
-					url += 'add_album.php?eventid=<?php echo $event_id;?>&albumid=' + id;
+					alert("should add");
+					url += 'add_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";;
 					
 				}
 				else {
-					url += 'remove_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "?userid=<?php echo $user_id;?>";
-					
+					url += 'remove_album.php?eventid=<?php echo $event_id;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";
+					alert("should remove");					
 				}
 				$.getJSON(url,function(data) {});
 			}

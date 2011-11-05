@@ -25,4 +25,4 @@ while($row = mysql_fetch_array($result))
 
 //Return json data
 echo json_encode($eventData);
-?>
+

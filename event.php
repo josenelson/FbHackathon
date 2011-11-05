@@ -1,9 +1,33 @@
+<?php
+	require_once("./header.php");
+	
+	$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 		<link rel="stylesheet" href="css/style.css"/>
 		<script text="text/javascript">
+			$.getJSON(
+						"./services/fb_event_users.php?eventid=<?php echo $eventid; ?>", 
+						function(data) {
+							$("#epage-eventname")[0].innerHTML = data.event.name;
+							$("#epage-eventdate")[0].innerHTML = data.event.date;
+							$("#epage-location")[0].innerHTML = data.event.location;
+							
+							var html = "";
+							
+							for(var i = 0; i < data.event.users.length; i++) {
+								html = '<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>';
+								
+								$("epgage-users-list")[0].innerHTML += html;
+							
+							}
+							
+      					});
+
+			
 			var newArray = [
    				["medium", 0, 0],
         		["small", 162, 0],
@@ -67,11 +91,11 @@
 			<div id="event-image"><img src="img/profile.jpg"></img></div>
 			<div id="event-data">
 				<div id="epage-topdata">
-					<p id="epage-eventname">Understanding Eygptian</p>
-					<p id="epage-eventdate">Feb 1'2011</p>
+					<p id="epage-eventname"></p>
+					<p id="epage-eventdate"></p>
 				</div>
 				<div id="epage-bdata">
-					<p>150 IVY Street</p>
+					<p id="epage-location"></p>
 				</div>
 			</div>
 			<div id="event-map"><img src="img/profile.jpg" style="width:200px;height:150px;"></img></div>
@@ -84,7 +108,7 @@
 				</div>
 				<div>	
 				<table border="0" cellspacing="0">
-					<tbody>
+					<tbody id="epgage-users-list">
 						<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>
 						<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>
 						<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>
