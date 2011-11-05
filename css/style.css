@@ -107,7 +107,6 @@ div.limg-container{
 	position: absolute;
 }
 
-<<<<<<< HEAD
 /* New styles from template, remove as needed */
 .mask{
    position: relative;
@@ -193,12 +192,11 @@ a:hover{
 	color:#ff0099;
 }
 
-=======
 img.size-large{
 	width:320px;
 	height:auto;
 }
->>>>>>> f5ed8c995331d861740d3b8e71cd42b171043eaf
+
 
 div.mimg-container{
 	width:160px;

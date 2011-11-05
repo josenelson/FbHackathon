@@ -56,7 +56,7 @@
     				var eventCircle = new google.maps.Circle(circleOptions);
 
 				});
-					   		});
+			});
 	   		
 	   		function changeArrowHover(){
 	   			$('.jscarousal-horizontal-back').hover(
