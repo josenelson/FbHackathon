@@ -5,6 +5,9 @@
 	</head>
 	<body>
 		<div id="page">
+		<div id="event-top-page">
+			<div id="event-image"><img src="img/profile.jpg"></img>
+		</div>
 		<div id="bottom-page">
 			<div id="right-side">
 				<table border="0" cellspacing="0">
