@@ -8,30 +8,15 @@
 	$logouturl = $_SESSION["logoutUrl"];
 	$loginurl = $_SESSION["loginUrl"];
 	
-	if(isLoggedin()){
-		$user = getCurrentUserInfo();
-		$user_info = getCurrentUserInfo();
+	$user = getCurrentUserInfo();
+	$user_info = getCurrentUserInfo();
 
-		$user_name = $user_info->{"name"};
-		$user_id = $user_info->{"id"};
+	$user_name = $user_info->{"name"};
+	$user_id = $user_info->{"id"};
 
-		$userImageUrl = getUserImageUrl($user_id);
-	
-	} 
+	$userImageUrl = getUserImageUrl($user_id);
 		
-	else {
-		echo "It's not logged in";
-		echo $loginurl;
-		die();
-	}		
 ?>
-
-<html>
-	<head>
-		<title></title>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-	</head>
-	<body>
 		<div id="albums" class="albums_div">
         	<table id="album-container" border="0" cellspacing="0">		
         	
@@ -53,41 +38,41 @@
 				$.getJSON(url,function(data) {});
 			}
 		
-			$.getJSON(
+			function loadAlbums() {
+				$.getJSON(
 						"./services/get_user_albums.php?userid=<?php echo $user_id; ?>&eventid=<?php echo $event_id;?>", 
 						function(data) {
 						
-			var html = '';
-			var alternate = true;
-			for(var i = 0; i < data.albums.length; i++)
-			{
-				html = '<tr bgcolor="@{rowcolor}"><td><input onClick="updateAlbum(this, \'@{id}\')" value="@{id}" @{checked} type="checkbox"></td><td><img  class="album_container" src="@{img}"></td><td class="table_text">@{name}</td></tr>';
+				var html = '';
+				var alternate = true;
+				for(var i = 0; i < data.albums.length; i++)
+				{
+					html = '<tr bgcolor="@{rowcolor}"><td><input onClick="updateAlbum(this, \'@{id}\')" value="@{id}" @{checked} type="checkbox"></td><td><img  class="album_container" src="@{img}"></td><td class="table_text">@{name}</td></tr>';
+			
 		
-		
-		//		html = "<div><input type=\"checkbox\" onclick=\"updateAlbum(this, '@{id}')\" value=\"@{id}\" @{checked}/><img src=\"@{img}\"/>@{name}</div>"; 
+					//		html = "<div><input type=\"checkbox\" onclick=\"updateAlbum(this, '@{id}')\" value=\"@{id}\" @{checked}/><img src=\"@{img}\"/>@{name}</div>"; 
 				
-				html = html.replace("@{name}", data.albums[i].name);
-				html = html.replace("@{img}", data.albums[i].imageurl);
-				html = html.replace("@{id}", data.albums[i].id);
-				if(alternate)
-					html = html.replace("@{rowcolor}", "#FECBEC");
-				else
-					html = html.replace("@{rowcolor}", "white");
+					html = html.replace("@{name}", data.albums[i].name);
+					html = html.replace("@{img}", data.albums[i].imageurl);
+					html = html.replace("@{id}", data.albums[i].id);
+					if(alternate)
+						html = html.replace("@{rowcolor}", "#FECBEC");
+					else
+						html = html.replace("@{rowcolor}", "white");
 
-				alternate = !alternate;
+					alternate = !alternate;
 				
-				if(data.albums[i].exists >= 1) {
-					html = html.replace("@{checked}", 'checked');
-				}
-				else {
-					html = html.replace("@{checked}", '');
-				}
+					if(data.albums[i].exists >= 1) {
+						html = html.replace("@{checked}", 'checked');
+					}
+					else {
+						html = html.replace("@{checked}", '');
+					}
 				
-				$("#album-container")[0].innerHTML += html; 
-			}
+					("#album-container")[0].innerHTML += html; 
+				}
        			
-      		});
+      			});
+      		}
       		
 		</script>
-	</body>
-</html>
