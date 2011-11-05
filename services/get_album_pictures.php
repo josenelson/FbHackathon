@@ -14,7 +14,7 @@ $pictures = getAlbumPictures($albumid);
 
 $pictureData = array();
 $pictureData["pictures"] = array();
-print_r($pictures);
+
 foreach($pictures as $picture)
 {
 	foreach($picture as $singlePicture)
