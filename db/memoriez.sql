@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `eventlocations`
 --
 
+DROP TABLE eventlocations;
 CREATE TABLE IF NOT EXISTS `eventlocations` (
   `eventid` text COLLATE utf8_unicode_ci NOT NULL,
   `lat` double NOT NULL DEFAULT '0',
@@ -46,6 +47,7 @@ INSERT INTO `eventlocations` (`eventid`, `lat`, `lng`, `id`) VALUES
 -- Table structure for table `events`
 --
 
+DROP TABLE events;
 CREATE TABLE IF NOT EXISTS `events` (
   `eventid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`eventid`)
@@ -64,6 +66,7 @@ INSERT INTO `events` (`eventid`) VALUES
 -- Table structure for table `images`
 --
 
+DROP TABLE images;
 CREATE TABLE IF NOT EXISTS `images` (
   `eventid` text COLLATE utf8_unicode_ci NOT NULL,
   `picid` text COLLATE utf8_unicode_ci NOT NULL,
