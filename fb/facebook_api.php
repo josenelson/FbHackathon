@@ -94,7 +94,6 @@ function getAlbumPictures($albumid)
 {
 	$jsonurl = "https://graph.facebook.com/" . $albumid."/photos";
 	$jsonurl .= "?access_token=" . $_SESSION["access_token"];
-	echo $jsonurl;
 	$json = file_get_contents($jsonurl,0,null,null);
 	$json_output = json_decode($json);
 	return $json_output;
@@ -131,6 +130,14 @@ function getImageUrl($imageid) {
 	$jsonoutput = json_decode($json);
 	return $jsonoutput->{"picture"};
 }
+
+
+function getUserImage($userid)
+{
+	$url = "https://graph.facebook.com/" . $userid."/picture";
+	return $url;
+}
+
 
 function printUser() {
 	print_r($_SESSION["access_token"]);
