@@ -12,7 +12,7 @@
 	$user_id = $user_info->{"id"};
 	
 	if(isLoggedin()){
-	$userImageUrl = getUserImageUrl(getLoggedUserId());
+	$userImageUrl = getUserImageUrl($user_id);
 	} 
 		
 	else {
@@ -31,6 +31,8 @@
 	<head>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	    <script src="js/jsCarousel-2.0.0.js" type="text/javascript"></script>
+		<link href="js/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
 	    <link rel="stylesheet" href="css/style.css"/>
 	    <script type="text/javascript">
 	    	var map;
@@ -59,6 +61,7 @@
 				});
 				
 				changeEventHover();
+				$('#carouselh').jsCarousel({ onthumbnailclick: function(src) { alert(src); }, autoscroll: false, circular: true, masked: false, itemstodisplay: 5, orientation: 'h' });
 	   		});
 	   		
 	   		function changeEventHover(){
@@ -86,6 +89,7 @@
 				<div id="my-map" style="width:100%;height:350px;"></div>
 				<div id="event-bar">
 					<hr size="4"></hr>
+					<div id="carouselh">
 					<div id="event-info">
 						<div class="event-wrapper">
 							<div class="event-image">
@@ -173,6 +177,7 @@
 								<p class="event-date">Feb 1' 2001</p>
 							</div>
 						</div>
+					</div>
 					</div>
 					<div style="clear:both;"/>
 				</div>
