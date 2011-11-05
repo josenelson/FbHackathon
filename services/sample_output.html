@@ -1,20 +1,15 @@
 <html>
   <head>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/wordcumulus.js"></script>
-    <script type="text/javascript" src="http://word-cumulus-goog-vis.googlecode.com/svn/trunk/swfobject.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript">
-      google.load("visualization", "1");
-
-      // Set callback to run when API is loaded
-      google.setOnLoadCallback(drawVisualization);
-
-      // Called when the Visualization API is loaded.
-      function drawVisualization() {
-				var url = './fb_events.php';
-       			$.getJSON(url, function(events) {
-       			
+      google.load("visualization", "1", {packages:["treemap"]});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+         
+          
+          $.getJSON('fb_events.php', function(events) {          
        				 // Create and populate a data table.
         			var data = new google.visualization.DataTable();
         			data.addColumn('string', 'Tag');
@@ -41,11 +36,14 @@
             			showScale: true});
             
        				});
-       		}
-   </script>
+
+                }
+    </script>
   </head>
 
   <body>
     <div id="visualization" style="width: 1100px; height: 500px;"></div>
   </body>
 </html>
+
+
