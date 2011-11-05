@@ -25,6 +25,25 @@ function codeAddress(address,i,markerTitle) {
 	    });
 	}
 
+{
+    featureType: "water",
+    stylers: [
+      { invert_lightness: true },
+      { lightness: 27 },
+      { saturation: -54 }
+    ]
+  },{
+    featureType: "poi.park",
+    stylers: [
+      { saturation: -89 }
+    ]
+  }
+
+
+
+
+
+
 
 <div class="simg-container" style="left:162px;top:0;"><img src="img/thumbnail.jpg" class="size-small"></img></div>
 				<div class="simg-container" style="left:244px;top:0px;"><img src="img/thumbnail.jpg" class="size-small"></img></div>

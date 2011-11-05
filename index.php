@@ -36,13 +36,33 @@
             var markers = new Array();
 	   		$(document).ready(function(){
 	   			var latlng = new google.maps.LatLng(40,-6.8);
+	   			var ourStyle = [
+  {
+    featureType: "poi.park",
+    stylers: [
+      { saturation: -80 }
+    ]
+  },{
+    featureType: "water",
+    stylers: [
+      { gamma: 0.55 },
+      { lightness: 15 },
+      { saturation: -44 }
+    ]
+  }
+];
+				var maptype = new google.maps.StyledMapType(ourStyle,{name: "Our Style"});
 			    var myOptions = {
 				    zoom: 2,
 				    minZoom:2,
 				    center: latlng,
-	   			    mapTypeId: google.maps.MapTypeId.ROADMAP
+	   			    mapTypeControlOptions: {
+		 				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'our_style']
+					}
 			    };
 			    map = new google.maps.Map(document.getElementById("my-map"),myOptions);
+			    map.mapTypes.set('our_style', maptype);
+  				map.setMapTypeId('our_style');
 			    
 			});
 	   		
@@ -74,8 +94,8 @@
     					$(this).find('.event-text').css({'color':'#FFFFFF'});
   					},
   					function () {
-    					$(this).css({'background-color':'#afb5b8'});
-    					$(this).find('.event-text').css({'color':'#000000'});
+    					$(this).css({'background-color':'#c8cdcf'});
+    					$(this).find('.event-text').css({'color':'#a82d89'});
   					}
 				);
 	   		}

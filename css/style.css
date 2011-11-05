@@ -74,7 +74,7 @@ div#carouselh a{
 div.event-wrapper{
 	width:110px;
 	padding:5px;
-	background-color:#afb5b8;
+	background-color:#c8cdcf;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	float:left;
@@ -92,6 +92,11 @@ div.event-text{
 	padding-bottom: 8px;
 	font-size:0.8em;
 	padding-top:2px;
+	color:#a82d89;
+}
+
+p.event-name{
+	font-weight: bold;
 }
 
 img.evt-img{
