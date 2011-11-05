@@ -133,7 +133,13 @@
     			    
     						
     		}
-
+    		
+			function getAlbums(){
+				$("div#album-select").load("album_selection.php", {}, function(){
+				
+				});
+			
+			}
 		</script>
 	</head>
 	<body>
@@ -155,9 +161,10 @@
 		<div id="bottom-page">
 			<div id="right-side">
 				<div id="add-album">
-					<a href="#"><img src="img/add-album-normal.png"></img></a>
+					<a href="javascript:getAlbums()"><img src="img/add-album-normal.png"></img></a>
 				</div>
-				<div>	
+				
+				<div id="album-select">	
 				<table border="0" cellspacing="0">
 					<tbody id="epgage-users-list">
 					</tbody>
@@ -169,6 +176,7 @@
 			</div>
 			<div style="clear:both;"/>
 		</div>
+		<div style="clear:both;"/>
 		</div>
 	</body>
 </html>
