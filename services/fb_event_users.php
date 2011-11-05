@@ -18,7 +18,7 @@ $usersData = array();
 $temp["imgurl"] = getUserImageUrl($current_user_info->{"id"});
 $temp["userid"] = $current_user_info->{"id"};
 $temp["username"] = $current_user_info->{"name"};
-$temp["exists"] = checkIfExists($temp["userid"], $temp["eventid"]);
+$temp["exists"] = checkExists($temp["userid"], $eid);
 
 array_push($usersData, $temp);
 
@@ -33,7 +33,7 @@ if($users)
 		$temp["imgurl"] = $imgurl;
 		$temp["userid"] = $user;
 		$temp["username"] = getUserInfo($user)->{"name"};
-		$temp["exists"] = checkIfExists($temp["userid"], $temp["eventid"]);
+		$temp["exists"] = checkExists($temp["userid"], $eid);
 		array_push($usersData, $temp);
 		$i++;
 

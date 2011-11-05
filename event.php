@@ -39,14 +39,22 @@
 							var html = "";
 							
 							for(var i = 0; i < data.event.users.length; i++) {
-								html = '<tr><td><img src="@{url}"></td><td><p class="people-name" onClick="filterUsers(\'@{userid}\')">@{name}</p></td></tr>';
+								html = '<tr><td>@{userposted}</td><td><img src="@{url}"></td><td><p class="people-name" onClick="filterUsers(\'@{userid}\')">@{name}</p></td></tr>';
 								
 								html = html.replace("@{url}", data.event.users[i].imgurl);
 								html = html.replace("@{name}", data.event.users[i].username);
 								html = html.replace("@{userid}", data.event.users[i].userid);
 								
-								$("#epgage-users-list")[0].innerHTML += html;
+								if(data.event.users[i].exists > 0) {
+									//alert('user posted');
+									html = html.replace("@{userposted}", '<div height="100%" width="5px" background="black">&nbsp;</div>');
+								}
+								else {
+									//alert('data.event.users[i].exists');
+									html = html.replace("@{userposted}", ' ');
+								}
 							
+								$("#epgage-users-list")[0].innerHTML += html;
 							}
 							
       		});
