@@ -2,12 +2,84 @@
 	require_once("./header.php");
 	
 	$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
+	
+	$user = getCurrentUserInfo();
+	$user_info = getCurrentUserInfo();
+
+	$user_name = $user_info->{"name"};
+	$user_id = $user_info->{"id"};
+
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<link rel="stylesheet" href="css/style.css"/>
+		
+		<script type="text/javascript">
+			
+			function updateAlbum(control, id) {
+				var url = "./services/";
+				if(control.checked) {
+					alert("should add");
+					url += 'add_album.php?eventid=<?php echo $eventid;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";;
+					
+				}
+				else {
+					url += 'remove_album.php?eventid=<?php echo $eventid;?>&albumid=' + id + "&userid=<?php echo $user_id;?>";
+					alert("should remove");					
+				}
+				$.getJSON(url,function(data) {});
+			}
+		
+			//function loadAlbums() {
+				$.getJSON(
+						"./services/get_user_albums.php?userid=<?php echo $user_id; ?>&eventid=<?php echo $eventid;?>", 
+						function(data) {
+						
+				var html = '';
+				var alternate = true;
+				for(var i = 0; i < data.albums.length; i++)
+				{
+					html = '<tr bgcolor="@{rowcolor}"><td><input onClick="updateAlbum(this, \'@{id}\')" value="@{id}" @{checked} type="checkbox"></td><td><img  class="album_container" src="@{img}"></td><td class="table_text">@{name}</td></tr>';
+			
+		
+					//		html = "<div><input type=\"checkbox\" onclick=\"updateAlbum(this, '@{id}')\" value=\"@{id}\" @{checked}/><img src=\"@{img}\"/>@{name}</div>"; 
+				
+					html = html.replace("@{name}", data.albums[i].name);
+					html = html.replace("@{img}", data.albums[i].imageurl);
+					html = html.replace("@{id}", data.albums[i].id);
+					if(alternate)
+						html = html.replace("@{rowcolor}", "#FECBEC");
+					else
+						html = html.replace("@{rowcolor}", "white");
+
+					alternate = !alternate;
+				
+					if(data.albums[i].exists >= 1) {
+						html = html.replace("@{checked}", 'checked');
+					}
+					else {
+						html = html.replace("@{checked}", '');
+					}
+				
+					("#album-container")[0].innerHTML += html; 
+				}
+       			
+      			});
+      		//}
+      		
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<script text="text/javascript">
 			
 			function filterUsers(userid) {
@@ -56,6 +128,8 @@
 							
 								$("#epgage-users-list")[0].innerHTML += html;
 							}
+							var docHeight= $(document).height();
+							$('div#page').css({'height': docHeight });
 							
       		});
       		
@@ -130,20 +204,77 @@
     				$(divImages[i]).css({'top': newArray[counter][2]});
     				counter++;
     			}
-    			    
+    			$('div#page').css({'height':'100%'});    
     						
     		}
     		
 			function getAlbums(){
 				$("div#album-select").load("album_selection.php", {}, function(){
-					loadAlbums();
+					
 				});
 			
 			}
+			
+		</script>
+		<script type="text/javascript">
+			var map;
+		
+			$(document).ready(function(){
+				var latlng = new google.maps.LatLng(40,-6.8);
+	   			var ourStyle = [
+ 								 {
+    								featureType: "poi.park",
+    								stylers: [
+     								 { saturation: -80 }
+   									 ]
+ 								 },{
+    								featureType: "water",
+    								stylers: [
+    								  { gamma: 0.55 },
+     								 { lightness: 15 },
+     								 { saturation: -44 }
+   							 	 ]
+ 								 }
+								];
+				var maptype = new google.maps.StyledMapType(ourStyle,{name: "Our Style"});
+			    var myOptions = {
+				    zoom: 2,
+				    minZoom:2,
+				    center: latlng,
+	   			    mapTypeControlOptions: {
+		 				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'our_style']
+					}
+			    };
+			    map = new google.maps.Map(document.getElementById("event-map"),myOptions);
+			    map.mapTypes.set('our_style', maptype);
+  				map.setMapTypeId('our_style');
+			});
 		</script>
 	</head>
 	<body>
 		<div id="page">
+			<div id="links">
+					<ul id="nav-links">
+						<li><a href="index3.php">HOME | </a></li>
+						<li><a href="index3.php">SIGN OUT</a></li>
+					</ul>
+				</div>
+				<div id="header">
+    				<div id="userthumb_navbar">
+        				<img src="<?php echo $userImageUrl;?>" />
+       				</div>
+        
+        			<div id="userinfo_navbar">
+        				<p>Welcome,</p> 
+        				<p><?php echo $user_name;?></p> 
+        				
+        			</div>
+        
+       				<div id="logo_navbar">
+        				<img src="./img/logo2.png" width="200" height="40"/>
+        			</div>
+        			<div style="clear:both;"></div>
+    		</div>
 		<div id="event-top-page">
 			<div id="event-image"><img id="epage-event-image" src=""></img></div>
 			<div id="event-data">
@@ -155,7 +286,7 @@
 					<p id="epage-location"></p>
 				</div>
 			</div>
-			<div id="event-map"><img src="img/profile.jpg" style="width:200px;height:150px;"></img></div>
+			<div id="event-map"></div>
 			<div style="clear:both;"></div>
 		</div>
 		<div id="bottom-page">
