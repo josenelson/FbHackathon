@@ -3,11 +3,8 @@
 {
 	width: 740px;
 	height: 118px;
-	background-color: #121212;
-	border: solid 1px #7A7677;
 	margin: 0;
 	padding: 0;
-	padding: 22px 8px 22px 8px;
 	position: relative; /*overflow: hidden;*/
 }
 .jscarousal-horizontal-back, .jscarousal-horizontal-forward
@@ -15,7 +12,6 @@
 	float: left;
 	width: 23px;
 	height: 98px;
-	background-color: #121212;
 	color: White;
 	position: relative;
 	top: 6px;
@@ -23,20 +19,20 @@
 }
 .jscarousal-horizontal-back
 {
-	background-image: url(left_arrow.jpg);
+	background-image: url(../img/back-arrow-unselected.png);
 	background-repeat: no-repeat;
 	background-position: left;
 }
 .jscarousal-horizontal-forward
 {
-	background-image: url(right_arrow.jpg);
+	background-image: url(../img/next-arrow-unselected.png);
 	background-repeat: no-repeat;
 	background-position: right;
 }
 .jscarousal-contents-horizontal
 {
-	width: 690px;
-	height: 124px;
+	width: 650px;
+	height: 150px;
 	float: left;
 	position: relative;
 	overflow: hidden;
@@ -49,15 +45,11 @@
 }
 .jscarousal-contents-horizontal > div > div
 {
-	float: left;
-	margin-left: 8px;
-	margin-right: 8px;
+	
 }
 .jscarousal-contents-horizontal img
 {
-	width: 120px;
-	height: 94px;
-	border: solid 1px #7A7677;
+	
 }
 /*Horizontal Orientation CSS Ends*/
 
