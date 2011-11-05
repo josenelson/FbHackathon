@@ -1,14 +1,16 @@
 <?php
 	include_once('conf/config.php');
 	include_once('fb/facebook_api.php');
-	session_start();
+	//session_start();
 	
 	$user = getCurrentUserInfo();
 	$logouturl = $_SESSION["logoutUrl"];
 	$loginurl = $_SESSION["loginUrl"];
 	
-	if(isLoggedin()) 
-		echo ('Facebook login');
+	if(isLoggedin()){
+	$userImageUrl = getUserImageUrl(getLoggedUserId());
+	} 
+		
 	else {
 		echo('<a href="' . $loginurl.'">Login with Facebook</a>');
 		die();
@@ -37,11 +39,36 @@
 	   			    mapTypeId: google.maps.MapTypeId.ROADMAP
 			    };
 			    map = new google.maps.Map(document.getElementById("my-map"),myOptions);
-			    GEvent.addListener(map, "click", function() {
-  					alert("You clicked the map.");
+			    google.maps.event.addListener(map, "click", function(event) {
+  					var circleOptions = {
+      					strokeColor: "#9e217e",
+      					strokeOpacity: 0.8,
+      					strokeWeight: 2,
+      					fillColor: "#c51498",
+      					fillOpacity: 0.35,
+      					map: map,
+      					center: event.latLng,
+      					radius: 600000
+    				};
+    				var eventCircle = new google.maps.Circle(circleOptions);
+
 				});
+				
+				changeEventHover();
 	   		});
 	   		
+	   		function changeEventHover(){
+	   			$('.event-wrapper').hover(
+  					function () {
+    					$(this).css({'background-color':'#a82d89'});
+    					$(this).find('.event-text').css({'color':'#FFFFFF'});
+  					},
+  					function () {
+    					$(this).css({'background-color':'#afb5b8'});
+    					$(this).find('.event-text').css({'color':'#000000'});
+  					}
+				);
+	   		}
 	   	</script>
 	</head>
 	<body>
@@ -49,7 +76,102 @@
 			if(isLoggedin()) {
 		?>
 			<div id="page">
-				<div id="my-map" style="width:100%;height:300px;"></div>
+				<div id="header-bar">
+					<img src="<?php echo $userImageUrl;?>" style="width:30px;height:30px;"></img>
+				</div>
+				<div id="my-map" style="width:100%;height:350px;"></div>
+				<div id="event-bar">
+					<hr size="4"></hr>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div id="event-info">
+						<div class="event-wrapper">
+							<div class="event-image">
+								<img src="img/pyramid.jpg" class="evt-img"></img>
+							</div>
+							<div class="event-text">
+								<p class="event-name">Understanding Egyptian</p>
+								<p class="event-date">Feb 1' 2001</p>
+							</div>
+						</div>
+					</div>
+					<div style="clear:both;"/>
+				</div>
 			</div>
 
 		<?php
