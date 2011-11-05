@@ -1,0 +1,22 @@
+<html>
+	<head>
+	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	    
+	    
+	</head>
+	<body>
+		<script type="text/javascript">
+      		var url = 'fb_event_images.php?eventid=131657286936629';
+		$.getJSON(url, function(data) {
+			for(var i = 0; i < data.picid.length; i++)
+			{
+				alert(data.picid[i]);
+			}
+       			
+      		});
+
+		
+		</script>    
+	    
+	</body>
+</html>
