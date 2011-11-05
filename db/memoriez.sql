@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 05, 2011 at 01:21 AM
+-- Generation Time: Nov 05, 2011 at 04:24 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -69,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `picid` text COLLATE utf8_unicode_ci NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `albumid` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
@@ -76,9 +77,9 @@ CREATE TABLE IF NOT EXISTS `images` (
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`eventid`, `picid`, `id`, `userid`) VALUES
-('131657286936629', 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/276426_144682542295731_1770123730_s.jpg', 2, '1184942072'),
-('131657286936629', 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/yi/r/zSnTif5Rf_V.png', 6, '1184942072');
+INSERT INTO `images` (`eventid`, `picid`, `id`, `userid`, `albumid`) VALUES
+('131657286936629', 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/276426_144682542295731_1770123730_s.jpg', 2, '1184942072', ''),
+('131657286936629', 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/yi/r/zSnTif5Rf_V.png', 6, '1184942072', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
