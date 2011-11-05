@@ -17,24 +17,21 @@ if($users)
 {
 	foreach($users->{"attending"} as $user) {
 		$imgurl = "";
-		if($i < 10)
-		{
-			$imgurl = getUserImageUrl($user);
-			$temp = array();
-			$temp["imgurl"] = $imgurl;
-			$temp["userid"] = $user;
-			array_push($usersData, $temp);
-			$i++;
-		}
+		if($i >= 10) break;
+		$imgurl = getUserImageUrl($user);
+		$temp = array();
+		$temp["imgurl"] = $imgurl;
+		$temp["userid"] = $user;
+		$temp["username"] = getUserInfo($user)->{"name"};
+		array_push($usersData, $temp);
+		$i++;
 
 	}
 }
 
 $eventData["event"] = array();
-
 $event = getEventInfo($eid);
 $eventpic = getEventPicture($eid);
-
 $eventData["event"]["name"] = $event->{"name"};
 $eventData["event"]["description"] = $event->{"description"};
 $eventData["event"]["date"] = $event->{"start_time"};
