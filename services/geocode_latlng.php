@@ -5,13 +5,6 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
 
 
-//Get the address passed in
-//Defaults to USA
-$address = isset($_GET["address"])? $_GET["address"]: "USA";
-
-//Geocode given address
-$geocodeaddress = geocode($address);
-
 function geocode($country)
 {
 define("MAPS_HOST", "maps.googleapis.com");
@@ -45,7 +38,6 @@ $base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json?address=";
       $temp["lat"] = $lat;
       $temp["lng"] = $lng;
       array_push($coordinates["coordinates"], $temp);
-     echo json_encode($coordinates);
       return $coordinates;
     }
     else if (strcmp($status, "REQUEST_DENIED") == 0) {
@@ -60,7 +52,6 @@ $base_url = "http://" . MAPS_HOST . "/maps/api/geocode/json?address=";
     usleep($delay);
     
   }
-	return "boom";
 }
 
 ?>

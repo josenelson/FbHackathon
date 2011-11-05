@@ -6,8 +6,6 @@ header('Content-type: application/json');
 
 include_once('../conf/config.php');
 
-//Event variable
-$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"1";
 
 function get_images($eventid)
 {

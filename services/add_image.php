@@ -6,14 +6,10 @@ header('Content-type: application/json');
 
 include_once('../conf/config.php');
 
-//Picture variable
-$picid = isset($_GET["picid"])? $_GET["picid"]:"";
-$eventid = isset($_GET["eventid"])? $_GET["eventid"]:"";
-echo $eventId;
+function add_image($eventid, $picid)
+{
 $query = "INSERT INTO images (eventid, picid) VALUES ('".$eventid."', '".$picid."')";
 $result = mysql_query($query);
-
-//Return true or false
-echo json_encode($result);
-
+return $result;
+}
 ?>
