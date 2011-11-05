@@ -9,9 +9,20 @@ require_once("../conf/config.php");
 
 $eid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 
+
 $users = getEventUsers($eid);
 
+$current_user_info = getCurrentUserInfo();
+
 $usersData = array();
+
+$temp["imgurl"] = getUserImageUrl($current_user_info->{"id"});
+$temp["userid"] = $current_user_info->{"id"};
+$temp["username"] = $current_user_info->{"name"};
+
+
+array_push($usersData, $temp);
+
 $i = 0;
 if($users)
 {
