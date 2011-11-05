@@ -9,19 +9,21 @@ include_once('../conf/config.php');
 //Event variable
 $eventid = isset($_GET["eventid"])? $_GET["eventid"]:"1";
 
-//Connection handle and get images based on eventid
-$result = mysql_query("SELECT picid FROM images WHERE eventid ='".$eventid."'");
-
-$eventData = array();
-$eventData["event_images"] = array();
-
-while($row = mysql_fetch_array($result))
+function get_images($eventid)
 {
-	$temp = array();
-	$temp["picid"] = $row["picid"];
-	array_push($eventData["event_images"], $temp);
-}
+	//Connection handle and get images based on eventid
+	$result = mysql_query("SELECT picid FROM images WHERE eventid ='".$eventid."'");
 
-//Return json data
-echo json_encode($eventData);
-?>
+	$eventData = array();
+	$eventData["event_images"] = array();
+
+	while($row = mysql_fetch_array($result))
+	{
+		$temp = array();
+		$temp["picid"] = $row["picid"];
+		array_push($eventData["event_images"], $temp);
+	}
+
+	//Return json data
+	return $eventData;
+}
