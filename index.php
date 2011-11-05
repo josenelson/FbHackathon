@@ -3,6 +3,8 @@
 	include_once('fb/facebook_api.php');
 	//session_start();
 	
+		
+	if(isLoggedin()){
 	$user = getCurrentUserInfo();
 	$logouturl = $_SESSION["logoutUrl"];
 	$loginurl = $_SESSION["loginUrl"];
@@ -10,9 +12,9 @@
 
 	$user_name = $user_info->{"name"};
 	$user_id = $user_info->{"id"};
-	
-	if(isLoggedin()){
+
 	$userImageUrl = getUserImageUrl($user_id);
+	
 	} 
 		
 	else {
@@ -32,7 +34,7 @@
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 	    <script src="js/jsCarousel-2.0.0.js" type="text/javascript"></script>
-		<link href="js/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
+		<link href="css/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
 	    <link rel="stylesheet" href="css/style.css"/>
 	    <script type="text/javascript">
 	    	var map;
@@ -59,10 +61,31 @@
     				var eventCircle = new google.maps.Circle(circleOptions);
 
 				});
-				
-				changeEventHover();
 				$('#carouselh').jsCarousel({ onthumbnailclick: function(src) { alert(src); }, autoscroll: false, circular: true, masked: false, itemstodisplay: 5, orientation: 'h' });
+				changeEventHover();
+				changeArrowHover();
 	   		});
+	   		
+	   		function changeArrowHover(){
+	   			$('.jscarousal-horizontal-back').hover(
+  					function () {
+    					$(this).css({'background-image':'url(img/back-arrow-selected.png)'});
+  					},
+  					function () {
+    					$(this).css({'background-image':'url(img/back-arrow-unselected.png)'});
+    					
+  					}
+				);
+				$('.jscarousal-horizontal-forward').hover(
+  					function () {
+    					$(this).css({'background-image':'url(img/next-arrow-selected.png)'});
+  					},
+  					function () {
+    					$(this).css({'background-image':'url(img/next-arrow-unselected.png)'});
+    					
+  					}
+				);
+	   		}
 	   		
 	   		function changeEventHover(){
 	   			$('.event-wrapper').hover(
@@ -90,95 +113,73 @@
 				<div id="event-bar">
 					<hr size="4"></hr>
 					<div id="carouselh">
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
+                            <div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/pyramid.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
+							<div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/taj.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
+							<div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/babylon.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
+							<div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/rio.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
+							<div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/liberty.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
+							<div>
+								<div class="event-wrapper">
+									<div class="event-image">
+										<img src="img/water.jpg" class="evt-img"></img>
+									</div>
+									<div class="event-text">
+										<p class="event-name">Understanding Egyptian</p>
+										<p class="event-date">Feb 1' 2001</p>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
-							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
-							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
-							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
-							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
-							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
-							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
-							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
-							</div>
-						</div>
-					</div>
-					<div id="event-info">
-						<div class="event-wrapper">
-							<div class="event-image">
-								<img src="img/pyramid.jpg" class="evt-img"></img>
-							</div>
-							<div class="event-text">
-								<p class="event-name">Understanding Egyptian</p>
-								<p class="event-date">Feb 1' 2001</p>
-							</div>
-						</div>
-					</div>
-					</div>
+                        </div>
 					<div style="clear:both;"/>
 				</div>
 			</div>
