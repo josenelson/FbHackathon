@@ -13,7 +13,6 @@ $albums = getUserAlbums($userid);
 $albumData = array();
 $albumData["albums"] = array();
 
-print_r($albums);
 foreach($albums as $album)
 {
 	foreach($album as $albumSingle)
@@ -21,7 +20,12 @@ foreach($albums as $album)
 
 		if($albumSingle->{"id"})
 		{
-			array_push($albumData["albums"], $albumSingle->{"id"});
+			$albumDetail = array();
+			$albumDetail["name"] = $albumSingle->{"name"};
+			$albumDetail["picture"] = $albumSingle->{"cover_photo"};
+			$albumDetail["id"] = $albumSingle->{"id"};
+			array_push($albumData["albums"], $albumDetail);
+
 		}
 	}
 
