@@ -14,7 +14,6 @@ $facebook = new Facebook(array(
 // Get User ID
 $user = $facebook->getUser();
 $access_token = $facebook->getAccessToken();
-$code = $_REQUEST["code"];
 
 $_SESSION["user"] = $user;
 $_SESSION["facebook"] = $facebook;

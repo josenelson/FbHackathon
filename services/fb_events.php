@@ -5,9 +5,13 @@ require_once("../conf/config.php");
 
 $user_events = getUserEvents();
 
-print_r($user_events);
+foreach($user_events as $user_event) {
+   print_r($user_event->{"eid"});
+   print_r($user_event);
+   echo "<br/>";
+}
 
-//var_dump($user_events->{"data"});
+print_r($user_events->{"data"});
 
 //$user_events = getUserEvents();
 

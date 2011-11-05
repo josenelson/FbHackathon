@@ -12,7 +12,7 @@
 	$user_id = $user_info->{"id"};
 	
 	if(isLoggedin()){
-	$userImageUrl = getUserImageUrl(getLoggedUserId());
+		$userImageUrl = getUserImageUrl(getLoggedUserId());
 	} 
 		
 	else {
