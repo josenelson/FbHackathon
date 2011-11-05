@@ -55,7 +55,8 @@
     				$(divImages[i]).css({'top': newArray[counter][2]});
     				counter++;
     			}
-    			    			
+    			    
+    						
     		});
 
 		</script>
@@ -78,6 +79,10 @@
 		</div>
 		<div id="bottom-page">
 			<div id="right-side">
+				<div id="add-album">
+					<a href="#"><img src="img/add-album-normal.png"></img></a>
+				</div>
+				<div>	
 				<table border="0" cellspacing="0">
 					<tbody>
 						<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>
@@ -89,6 +94,7 @@
 						<tr><td><img src="img/profile.jpg"></td><td><p class="people-name">Kaushal Agrawal</p></td></tr>
 					</tbody>
 				</table>
+				</div>
 			</div>
 			<div id="left-side">
 				<div><img src="img/thumbnail.jpg"></img></div>

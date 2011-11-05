@@ -44,3 +44,16 @@ function codeAddress(address,i,markerTitle) {
 				<div class="mimg-container" style="left:322px;top:550px;"><img src="img/thumbnail.jpg" class="size-medium"></img></div>
 				<div class="limg-container" style="left:0;top:430px;"><img src="img/thumbnail.jpg" class="size-large"></img></div>
 				
+				
+				
+				
+insert into eventlocations('186154901465992', 41, -79);
+insert into eventlocations('186154901465992', 51, -60);
+insert into eventlocations('186154901465992', 60, 90);
+insert into eventlocations('186154901465992', 50, -79);
+insert into eventlocations('160579154012514', 430, -79);
+insert into eventlocations('160579154012514', 23, -60);
+insert into eventlocations('160579154012514', -45, 90);
+insert into eventlocations('160579154012514', 34, -79);				
+				
+				

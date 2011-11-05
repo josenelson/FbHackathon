@@ -5,6 +5,14 @@ html, body{
 	height:100%;
 }
 
+a{
+	text-decoration: none;
+}
+
+img{
+	border:none;
+}
+
 body{
 	/*font-family: "lucida grande",tahoma,verdana,arial,sans-serif;*/
 	 padding: 0px;
@@ -279,4 +287,7 @@ div#event-map{
 	float:left;
 	margin-left:10px;
 }
+
+/**Right side div coding*/
+
 
