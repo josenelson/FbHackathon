@@ -32,9 +32,11 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 	</head>
 	<body>
-		<div id="album-container">
-			
-		</div>
+		<div id="albums" class="albums_div">
+        	<table id="album-container" border="0" cellspacing="0">		
+        	
+        	</table>
+        </div>
 		<script type="text/javascript">
 			
 			function updateAlbum(control, id) {
@@ -56,13 +58,23 @@
 						function(data) {
 						
 			var html = '';
+			var alternate = true;
 			for(var i = 0; i < data.albums.length; i++)
 			{
-				html = "<div><input type=\"checkbox\" onclick=\"updateAlbum(this, '@{id}')\" value=\"@{id}\" @{checked}/><img src=\"@{img}\"/>@{name}</div>"; 
+				html = '<tr bgcolor="@{rowcolor}"><td><input onClick="updateAlbum(this, \'@{id}\')" value="@{id}" @{checked} type="checkbox"></td><td><img  class="album_container" src="@{img}"></td><td class="table_text">@{name}</td></tr>';
+		
+		
+		//		html = "<div><input type=\"checkbox\" onclick=\"updateAlbum(this, '@{id}')\" value=\"@{id}\" @{checked}/><img src=\"@{img}\"/>@{name}</div>"; 
 				
 				html = html.replace("@{name}", data.albums[i].name);
 				html = html.replace("@{img}", data.albums[i].imageurl);
 				html = html.replace("@{id}", data.albums[i].id);
+				if(alternate)
+					html = html.replace("@{rowcolor}", "#FECBEC");
+				else
+					html = html.replace("@{rowcolor}", "white");
+
+				alternate = !alternate;
 				
 				if(data.albums[i].exists >= 1) {
 					html = html.replace("@{checked}", 'checked');
