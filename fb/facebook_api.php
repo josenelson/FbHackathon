@@ -81,6 +81,27 @@ function getEventPicture($eventid)
 }
 
 
+function getUserAlbums($userid)
+{
+	$jsonurl = "https://graph.facebook.com/" . $userid."/albums";
+	$jsonurl .= "?access_token=" . $_SESSION["access_token"];
+	$json = file_get_contents($jsonurl,0,null,null);
+	$json_output = json_decode($json);
+	return $json_output;
+}
+
+function getAlbumPictures($albumid)
+{
+	$jsonurl = "https://graph.facebook.com/" . $albumid."/photos";
+	$jsonurl .= "?access_token=" . $_SESSION["access_token"];
+	echo $jsonurl;
+	$json = file_get_contents($jsonurl,0,null,null);
+	$json_output = json_decode($json);
+	return $json_output;
+
+}
+
+
 function getUserEvents() {	
 	$jsonurl = "https://api.facebook.com/method/events.get";
 	$jsonurl = $jsonurl . "?access_token=" . $_SESSION["access_token"];
