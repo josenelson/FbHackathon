@@ -38,7 +38,7 @@
 				$.getJSON(url,function(data) {});
 			}
 		
-			function loadAlbums() {
+			//function loadAlbums() {
 				$.getJSON(
 						"./services/get_user_albums.php?userid=<?php echo $user_id; ?>&eventid=<?php echo $event_id;?>", 
 						function(data) {
@@ -73,6 +73,6 @@
 				}
        			
       			});
-      		}
+      		//}
       		
 		</script>
