@@ -12,11 +12,21 @@ $eid = isset($_GET["eventid"])? $_GET["eventid"]:"";
 $users = getEventUsers($eid);
 
 $usersData = array();
-
+$i = 0;
 if($users)
 {
 	foreach($users->{"attending"} as $user) {
-		array_push($usersData, $user);
+		$imgurl = "";
+		if($i < 10)
+		{
+			$imgurl = getUserImage($user);
+			$temp = array();
+			$temp["imgurl"] = $imgurl;
+			$temp["userid"] = $user;
+			array_push($usersData, $temp);
+			$i++;
+		}
+
 	}
 }
 
