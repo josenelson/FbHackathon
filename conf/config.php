@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost';
-$password = '';
+$password = 'root';
 $database = 'memoriez';
 $username = 'root';
 
